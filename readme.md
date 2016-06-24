@@ -4,19 +4,17 @@ This is my Project Zero **TIC-TAC-TOE** as part of my Web Development Immersive 
 ## Duration:
 4 days
 
-## Libraries used:
-jQuery
-
-## Frameworks used:
+## Tech Stack:
 - HTML
 - JavaScript
 - CSS
+- jQuery
 
 ## Features:
 
 ### Game Modes:
-1. 1 Player - Player(Human) v/s Computer
-2. 2 Players - Player 1 (Human) v/s Player 2 (Human)
+- 1 Player - Player(Human) v/s Computer
+- 2 Players - Player 1 (Human) v/s Player 2 (Human)
 
 ### Pick Avtar:
 The human players get an opportunity to choose avtar based on the mood from the below options:
