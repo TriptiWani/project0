@@ -1,80 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Tic Tac Toe</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/jquery.js"></script>
-  <script src="js/main.js"></script>
+    <meta charset="UTF-8">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/main.js"></script>
     <script src="js/logic.js"></script>
 </head>
-<body >
+
+<body>
 
 
     <div class="container">
 
-      <h1>Tic Tac Toe</h1>
-      <button class="chooseGame" id="one">1 Player</button>
-      <button class="chooseGame" id="two">2 Players</button>
-      <div class="chooseAvtar hidden">
-        <button class="pick" id="pick" >Pick Avtar</button>
-        <button class="default" id="no">No Avtar</button>
+        <h1>Tic Tac Toe</h1>
+        <button class="chooseGame" id="one">1 Player</button>
+        <button class="chooseGame" id="two">2 Players</button>
+        <div class="chooseAvtar hidden">
+            <button class="pick" id="pick">Pick Avtar</button>
+            <button class="default" id="no">No Avtar</button>
 
-      <table class="tableDisplay" style="width:22em">
-          <tbody>
-            <tr>
-          <td><img id="Drink" src="images/drink.jpg" alt=""></td>
-          <td><img id="Eat" src="images/eat.jpg" alt=""></td>
-          <td><img id="Tick" src="images/tick.jpg" alt=""></td>
-          <td><img id="Cross" src="images/cross.jpg" alt=""></td>
-          <td><img id="Lips" src="images/lips.jpg" alt=""></td>
-          <td><img id="Moustache" src="images/moustache.jpg" alt=""></td>
-          <td><img id="Tom" src="images/tom.jpg" alt=""></td>
-          <td><img id="Jerry" src="images/jerry.jpg" alt=""></td>
-          </tr>
-          </tbody>
-      </table>
-    </div>
-      <div>
-        <nav class="score">
-        <b class="scoreDisplay hidden" align="center">Score Board </b>
-        <ul>
-          <li id="score-player1"><span>Player 1</span>
-            <p>0</p>
-           </li>
-          <li id="score-player2"><span>Player 2</span>
-            <p>0</p>
-         </li>
-        </ul>
-      </nav>
-        <p class="blink_me" id="displayMessage" ></p>
-      </div>
+            <table class="tableDisplay" style="width:22em">
+                <tbody>
+                    <tr>
+                        <td><img id="Drink" src="images/drink.jpg" alt=""></td>
+                        <td><img id="Eat" src="images/eat.jpg" alt=""></td>
+                        <td><img id="Tick" src="images/tick.jpg" alt=""></td>
+                        <td><img id="Cross" src="images/cross.jpg" alt=""></td>
+                        <td><img id="Lips" src="images/lips.jpg" alt=""></td>
+                        <td><img id="Moustache" src="images/moustache.jpg" alt=""></td>
+                        <td><img id="Tom" src="images/tom.jpg" alt=""></td>
+                        <td><img id="Jerry" src="images/jerry.jpg" alt=""></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <nav class="score">
+                <b class="scoreDisplay hidden" align="center">Score Board </b>
+                <ul>
+                    <li id="score-player1"><span>Player 1</span>
+                        <p>0</p>
+                    </li>
+                    <li id="score-player2"><span>Player 2</span>
+                        <p>0</p>
+                    </li>
+                </ul>
+            </nav>
+            <p class="blink_me" id="displayMessage"></p>
+        </div>
     </div>
 
-  <article class="hidden">
-    <div class="container">
-      <div class="grid">
-        <button class="box new" identifier ="" type="text" id="b0"></button>
-        <button class="box new" identifier ="" type="text" id="b1"></button>
-        <button class="box new" identifier ="" type="text" id="b2"></button>
-      </div>
-      <div class="grid">
-        <button class="box new" identifier ="" type="text" id="b3"></button>
-        <button class="box new" identifier ="" type="text" id="b4"></button>
-        <button class="box new" identifier ="" type="text" id="b5"></button>
-      </div>
-      <div class="grid">
-        <button class="box new" identifier ="" type="text" id="b6"></button>
-        <button class="box new" identifier ="" type="text" id="b7"></button>
-        <button class="box new" identifier ="" type="text" id="b8"></button>
-      </div>
+    <article class="hidden">
+        <div class="container">
+            <div class="grid">
+                <button class="box new" identifier="" type="text" id="b0"></button>
+                <button class="box new" identifier="" type="text" id="b1"></button>
+                <button class="box new" identifier="" type="text" id="b2"></button>
+            </div>
+            <div class="grid">
+                <button class="box new" identifier="" type="text" id="b3"></button>
+                <button class="box new" identifier="" type="text" id="b4"></button>
+                <button class="box new" identifier="" type="text" id="b5"></button>
+            </div>
+            <div class="grid">
+                <button class="box new" identifier="" type="text" id="b6"></button>
+                <button class="box new" identifier="" type="text" id="b7"></button>
+                <button class="box new" identifier="" type="text" id="b8"></button>
+            </div>
 
-    </div>
-    <div class="container">
-    <button id="new">New</button>
-    <button id="continue">Continue</button>
-  </div>
-    </div>
-</article>
+        </div>
+        <div class="container">
+            <button id="new">New</button>
+            <button id="continue">Continue</button>
+        </div>
+        </div>
+    </article>
 </body>
+
 </html>
