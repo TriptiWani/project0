@@ -44,7 +44,7 @@ Below listed are the features I would like to implement further to this game:
 - Sounds
 - Code refactoring: The code looks bulky. Could be improved
 
-Play it here:
-
+## Play it here:
+ [TicTacToe](https://triptiwani.github.io/Games/TicTacToe/tictactoe.html)
 
 Thanks for stopping by, and I hope you enjoying the game!
