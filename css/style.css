@@ -1,8 +1,17 @@
-.container {
-  text-align:center;
-  background: #e8c7c7;
-  margin: 40px;
-  padding-bottom: 10em;
+@import url(https://fonts.googleapis.com/css?family=Coming+Soon);
+@import url(https://fonts.googleapis.com/css?family=Arimo:700);
+
+body{
+  background-image: url(http://il6.picdn.net/shutterstock/videos/9507011/thumb/1.jpg);
+  background-size: cover;
+  font-family: 'Coming Soon', cursive;
+}
+h1,b{
+    margin-top:2em;
+    font-family: 'Arimo', sans-serif;
+}
+#displayMessage{
+  font-family: 'Arimo', sans-serif;
 }
 .score{
   background: #e8c7c7;
@@ -10,23 +19,65 @@
 
 }
 .tableDisplay{
-  margin:0 auto;
+  margin:30px auto;
 }
-.image0{
-  background-image:url(../images/eatSmiley.jpg);
+.imageDrink{
+  background-image:url(../images/drink.jpg);
+  background-repeat: no-repeat;
+  background-position: 2px 3px;
+  background-size: cover;
+}
+.imageEat{
+  background-image:url(../images/eat.jpg);
+  background-repeat: no-repeat;
+  background-position: 2px 3px;
+  background-size: cover;
+}
+.imageCross{
+  background-image:url(../images/cross.jpg);
   background-repeat: no-repeat;
   background-position: 2px 3px;
   background-size: cover;
   /*color:0 0 0 0.5;*/
   font-size: 0px;
 }
-
-.image1{
-  background-image:url(../images/drinkSmiley.jpg);
-background-repeat: no-repeat;
-background-position: 2px 3px;
-background-size: cover;
-color:transparent;
+.imageTick{
+  background-image:url(../images/tick.jpg);
+  background-repeat: no-repeat;
+  background-position: 2px 3px;
+  background-size: cover;
+  /*color:0 0 0 0.5;*/
+  font-size: 0px;
+}
+.imageLips{
+  background-image:url(../images/lips.jpg);
+  background-repeat: no-repeat;
+  background-position: 2px 3px;
+  background-size: cover;
+}
+.imageMoustache{
+  background-image:url(../images/moustache.jpg);
+  background-repeat: no-repeat;
+  background-position: 2px 3px;
+  background-size: cover;
+}
+.imageTom{
+  background-image:url(../images/tom.jpg);
+  background-repeat: no-repeat;
+  background-position: 2px 3px;
+  background-size: cover;
+}
+.imageJerry{
+  background-image:url(../images/jerry.jpg);
+  background-repeat: no-repeat;
+  background-position: 2px 3px;
+  background-size: cover;
+}
+.ai{
+  background-image:url(../images/bb8.jpeg);
+  background-repeat: no-repeat;
+  background-position: 2px 3px;
+  background-size: cover;
 }
 nav a{
   display:inline;
@@ -35,33 +86,34 @@ nav a{
 .navigation{
   font-size: 20px;
 }
-
 nav ul{
   list-style:none;
 }
 .score #score-player1{
   position: absolute;
   text-align: left;
-
 }
 .score #score-player2{
   text-align: right;
-  padding-right: 2em;
+  padding-right: 1em;
 }
-.currentPlayer, .displayMessage{
+.currentPlayer, #displayMessage{
   font-size:30px;
+  text-shadow : 0 0 20px #771010;
 }
 input:hover{
   opacity:0.5;
 }
+div.box{
+  display:inline;
+}
 img {
-  height: 40px;
-  width: 40px;
+  height: 50px;
+  width: 50px;
   border-radius: 5px;
   border-color:#650707;
   border-width:4px;
   padding:2px 2px 2px 2px;
-
 }
 #displayImage1{
   text-align: left;
@@ -75,9 +127,8 @@ img {
   grid-gap: 10px;
   color: #444;
 }
-
 .box {
-  background-color: #9eb4d0;
+  background-color: #cec4b9;
   color: #650707;
   border-radius: 5px;
   border-width: 2px;
@@ -88,4 +139,59 @@ img {
   width:100px;
   height: 100px;
   text-align:center;
+}
+.blink_me {
+  animation: blinker 1s linear infinite;
+}
+@keyframes blinker {
+  50% { opacity: 0.0; }
+}
+.imageX{
+  background-color : green;
+  background-repeat: no-repeat;
+  background-position: 2px 3px;
+  background-size: cover;
+}
+.imageO{
+  background-color : blue;
+background-repeat: no-repeat;
+background-position: 2px 3px;
+background-size: cover;
+}
+.container {
+  text-align:center;
+  width:700px;
+  background: rgba(193,165,165,0.06);
+  /*background-image:url(http://www.pptbackgrounds.org/uploads/tic-tac-toe-backgrounds-wallpapers.jpg);*/
+  margin: 0 auto;
+  padding-bottom: 2em;
+  border-color: #650707;
+  border-width: 1em;
+  /*position:absolute;*/
+}
+button {
+  width:100px;
+  height:40px;
+  background-color: rgba(195, 156, 115, 0.17);
+  font-size: 20px;
+  margin:0 auto;
+}
+b{
+  background: rgba(205, 171, 143, 0.59);
+  font-size: 20px;
+}
+.chooseGame{
+  margin:40px;
+}
+.hidden{
+  display:none;
+}
+.pick{
+  width: inherit;
+}
+.played{
+
+}
+.winner{
+  
 }
