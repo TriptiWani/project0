@@ -1,48 +1,27 @@
 //var input = ['X','O'];
-var input=[];
-//var input = [$img1,$img2];
+var scorePlayer1 = 0;
+var scorePlayer2 = 0;
+//var inputImg = [];
 var customisedDisplay = {
   default: ['X','O'],
-  image : ['src1','src2'],
+  image : [],
   moustacheLips : ['src1','src2'],
+};
+var checkXO = function (b){
+	var combinationGrids = [];
+	var resultCombination = [[0,1,2],[0,3,6],[3,4,5],[6,7,8],[1,4,7],[2,5,8],[0,4,8],[6,4,2]];
+for ( var i =0 ; i < resultCombination.length ; i++ ) {
+	for ( var j =0 ; j < 3 ; j++ ) {
+		combinationGrids[j] = b[resultCombination[i][j]];
+	}
+	if ((combinationGrids[0] !== undefined) && (combinationGrids[0] !== '') && (combinationGrids[0] === combinationGrids[1]) && (combinationGrids[0] === combinationGrids[2]) && (combinationGrids[0] !== '')) {
+		//console.log(combinationGrids);
+  //  console.log();
+  console.log(resultCombination[i]);
+    return resultCombination[i];
+	}
 }
-
-var checkXO = function (b) {
-  console.log(b);
-    if ( ((b[0] === b[1]) && (b[0] === b[2]) && (b[0] !== '')) ||
-         ((b[0] === b[3]) && (b[0] === b[6]) && (b[0] !== '')) ||
-         ((b[3] === b[4]) && (b[3] === b[5]) && (b[3] !== '')) ||
-         ((b[6] === b[7]) && (b[6] === b[8]) && (b[6] !== '')) ||
-         ((b[1] === b[4]) && (b[1] === b[7]) && (b[1] !== '')) ||
-         ((b[2] === b[5]) && (b[2] === b[8]) && (b[2] !== '')) ||
-         ((b[0] === b[4]) && (b[0] === b[8]) && (b[0] !== '')) ||
-         ((b[6] === b[4]) && (b[6] === b[2]) && (b[6] !== ''))  ) {
-      return true;
-    } else {
-      return false;
-    }
-
-}
+};
 var scoreCalculation = function (score) {
-  return score+=1;
-}
-var newGame = function(){
-  var gridInit = ['','','','','','','','',''];
-  return gridInit;
-}
-var sameGame = function (scorePlayer1,scorePlayer2) {
-
-}
-var checkIfEmpty = function(value){
-  if (value !== ''){
-    var message = 'Please use a different cell';
-    return message;
-  } else {
-    var message ='';
-    return message;
-  }
-}
-
-var chooseDisplay = function () {
-
-}
+  return score+=10;
+};
