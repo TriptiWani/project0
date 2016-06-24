@@ -80,8 +80,14 @@ $(document).ready(function() {
                 // Tie situation
                 if ((clickCounter === 9) && (($('button.new').length) === 0) && (($('button.blink_me').length) === 0)) {
                     $message.html('Tie');
-                    alert('Press Continue if you want to continue' + '\n' +
-                        'Press NEW if you want a new grid');
+                    swal({
+                        title: "Ooops!",
+                        text: "Tie!"
+                    });
+                    swal({
+                        title: "Press Continue if you want to continue",
+                        text: "Press NEW if you want a new grid!"
+                    });
                 }
             }
         }
@@ -102,22 +108,40 @@ $(document).ready(function() {
                     scorePlayer1 = scoreCalculation(scorePlayer1);
                     $('#score-player1 p:last-child').html(scorePlayer1);
                     $message.html('Congratulations! Player 1 won');
-                    alert('Press Continue if you want to continue' + '\n' +
-                        'Press NEW if you want a new grid');
+                    swal({
+                        title: "Congratulations!",
+                        text: "Player 1 won!"
+                    });
+                    swal({
+                        title: "Press Continue if you want to continue!",
+                        text: "Press NEW if you want a new grid"
+                    });
                 } else if ($(winningId).hasClass('player2')) {
                     //To check if winning grid belongs to player2 and update scores
                     scorePlayer2 = scoreCalculation(scorePlayer2);
                     $('#score-player2 p:last-child').html(scorePlayer2);
                     $message.html('Congratulations! Player 2 won');
-                    alert('Press Continue if you want to continue' + '\n' +
-                        'Press NEW if you want a new grid');
+                    swal({
+                        title: "Congratulations!",
+                        text: "Player 2 won!"
+                    });
+                    swal({
+                        title: "Press Continue if you want to continue!",
+                        text: "Press NEW if you want a new grid"
+                    });
                 } else {
                     //To display messages winning grid belongs to AI
                     scorePlayer2 = scoreCalculation(scorePlayer2);
                     $('#score-player2 p:last-child').html(scorePlayer2);
                     $message.html('Congratulations! AI won');
-                    alert('Press Continue if you want to continue' + '\n' +
-                        'Press NEW if you want a new grid');
+                    swal({
+                        title: "Congratulations!",
+                        text: "AI won!"
+                    });
+                    swal({
+                        title: "Press Continue if you want to continue!",
+                        text: "Press NEW if you want a new grid"
+                    });
                 }
             }
         }
@@ -161,8 +185,14 @@ $(document).ready(function() {
 
             if ((clickCounter === 9) && (($('button.new').length) === 0) && (($('button.blink_me').length) === 0)) {
                 $message.html('Tie');
-                alert('Press Continue if you want to continue' + '\n' +
-                    'Press NEW if you want a new grid');
+                swal({
+                    title: "Oooops!",
+                    text: "Tie!"
+                });
+                swal({
+                    title: "Press Continue if you want to continue!",
+                    text: "Press NEW if you want a new grid"
+                });
             }
         }
     };
@@ -195,7 +225,10 @@ $(document).ready(function() {
     });
     //if the player wishes to choose avtar
     $('#pick').on('click', function() {
-        alert('Pick now!');
+      swal({
+          title: "Cool!",
+          text: "Pick now!"
+      });
     });
     // here the actual game starts.. when user clicks to choose the mode to be played
     $('button.box').on('click', function() {
@@ -217,7 +250,10 @@ $(document).ready(function() {
             //append the AI image in fornt of player 2
             $('#score-player2').prepend($imageAI);
             // picking the avtar for player 1
-            alert('Player 1 , Pick your avtar');
+            swal({
+                title: "Player 1!",
+                text: "Pick your avtar!"
+            });
             $('.chooseAvtar').removeClass('hidden');
             // to choose a display avtar for player 1
             $imgIcon.on('click', function() {
@@ -236,7 +272,10 @@ $(document).ready(function() {
 
         } else {
             //two players game
-            alert('Pick your avtar');
+            swal({
+                title: "Hey!",
+                text: "Pick your avtar!"
+            });
             $('.chooseAvtar').removeClass('hidden');
             var clickCount = 0;
             //Adding images, image class and background
@@ -250,7 +289,10 @@ $(document).ready(function() {
                     $('#score-player1').prepend($image);
                 } else {
                     if (inputImg[0] === $(this).attr('id')) {
-                        alert('Cannot choose same avtaar');
+                        swal({
+                            title: "Hey You!",
+                            text: "Cannot choose same avtaar!"
+                        });
                     } else {
                         inputImg[1] = $(this).attr('id');
                         $('#score-player2').prepend($image);
