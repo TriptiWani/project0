@@ -20,40 +20,31 @@
     <div class="container">
 
         <h1>Tic Tac Toe</h1>
-        <button class="chooseGame" id="one">1 Player</button>
-        <button class="chooseGame" id="two">2 Players</button>
+        <button class="startGame" id="start">Start Game</button>
+        <div class="chooseGame hidden">
+          <h2>Choose Game</h2>
+          <button id="one">1 Player</button>
+          <button id="two">2 Players</button>
+        </div>
         <div class="chooseAvtar hidden">
             <button class="pick" id="pick">Pick Avtar</button>
             <button class="default" id="no">No Avtar</button>
-
-            <table class="tableDisplay" style="width:22em">
-                <tbody>
-                    <tr>
-                        <td><img id="Drink" src="images/drink.jpg" alt=""></td>
-                        <td><img id="Eat" src="images/eat.jpg" alt=""></td>
-                        <td><img id="Tick" src="images/tick.jpg" alt=""></td>
-                        <td><img id="Cross" src="images/cross.jpg" alt=""></td>
-                        <td><img id="Lips" src="images/lips.jpg" alt=""></td>
-                        <td><img id="Moustache" src="images/moustache.jpg" alt=""></td>
-                        <td><img id="Tom" src="images/tom.jpg" alt=""></td>
-                        <td><img id="Jerry" src="images/jerry.jpg" alt=""></td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
-        <div>
+        <div class="scores hidden">
             <nav class="score">
                 <b class="scoreDisplay hidden" align="center">Score Board </b>
                 <ul>
                     <li id="score-player1"><span>Player 1</span>
-                        <p>0</p>
+                      <span class="blink_me" id="displayMessage"></span>
+                        <p></p>
                     </li>
+
                     <li id="score-player2"><span>Player 2</span>
-                        <p>0</p>
+                        <p></p>
                     </li>
                 </ul>
             </nav>
-            <p class="blink_me" id="displayMessage"></p>
+            <!-- <p class="blink_me" id="displayMessage1"></p> -->
         </div>
     </div>
 

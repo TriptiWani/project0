@@ -1,9 +1,44 @@
+var avtars = {
+  'source':['drink.jpg','eat.jpg','tick.jpg','cross.jpg','lips.jpg','moustache.jpg','tom.jpg','jerry.jpg'],
+  'identifier': ['Drink','Eat','Tick','Cross','Lips','Moustache','Tom','Jerry']
+};
+var createTData = function(source,id){
+  console.log('create table data');
+  $td = $('<td></td>');
+  $img = $('<img />');
+  $img.attr('id',id);
+  $img.attr('src','images/'+source);
+
+  $td.append($img);
+  console.log($td);
+
+  return $td;
+};
+var createAvtarTable = function(){
+  console.log('create table2');
+  $table = $('<table></table>');
+  $table.addClass('tableDisplay');
+  $table.attr('style','width:22em');
+  $tbody = $('<tbody></tbody>');
+  $tr = $('<tr></tr>');
+
+  for (var i = 0; i < avtars['source'].length; i++) {
+    $tableData = createTData(avtars['source'][i],avtars['identifier'][i]);
+    $tr.append($tableData);
+  }
+  $tbody.append($tr);
+  $table.append($tbody);
+  return $table;
+};
 $(document).ready(function() {
     //Declaring the variables
     var clickCount = 0;
     var inputImg = [];
     var clickCounter = 0;
     var grid = [];
+    var $avtarT = createAvtarTable();
+    $avtarT.addClass('hidden');
+    $('.chooseAvtar').append($avtarT);
     //This variable will be used to display messages/notifications during the game
     var $message = $('#displayMessage');
     //This variable is used to pick images/avtars from the table
@@ -24,6 +59,14 @@ $(document).ready(function() {
         //adding the image class to display the avtar
         a.addClass(imgClass);
     };
+
+    // Start the game and then choose the type of game
+    $('#start').on('click', function() {
+      console.log('start game');
+        $('.chooseGame.hidden').removeClass('hidden');
+        $('#start').addClass('hidden');
+    });
+
     // This function is a get function to get the current grid set badsed on the identifier attribute
     var getGrids = function() {
         var $b0 = $('#b0').attr('identifier');
@@ -94,6 +137,7 @@ $(document).ready(function() {
     };
     // Checking the winner by calling logic function checkXO with the set of current grids
     var checkWinner = function(grid) {
+      var num_of_stars;
         var winningGrid = checkXO(grid);
         if (winningGrid) {
             if (winningGrid.length > 0) {
@@ -106,10 +150,16 @@ $(document).ready(function() {
                 //To check if winning grid belongs to player1 and update scores
                 if ($(winningId).hasClass('player1')) {
                     scorePlayer1 = scoreCalculation(scorePlayer1);
-                    $('#score-player1 p:last-child').html(scorePlayer1);
-                    $message.html('Congratulations! Player 1 won');
+                    // $('#score-player1 p:last-child').html(scorePlayer1);
+                    $img_star = addStars();
+                    num_of_stars = scorePlayer1/10;
+                    for (var s = 0; s < num_of_stars ; s++ ) {
+                      $('#score-player1').append($img_star );
+                    }
+                    // $('#score-player1 p:last-child').addClass('hidden');
+                    $message.html('Congrats! Player 1 won');
                     swal({
-                        title: "Congratulations!",
+                        title: "Congrats!",
                         text: "Player 1 won!"
                     });
                     swal({
@@ -119,8 +169,13 @@ $(document).ready(function() {
                 } else if ($(winningId).hasClass('player2')) {
                     //To check if winning grid belongs to player2 and update scores
                     scorePlayer2 = scoreCalculation(scorePlayer2);
-                    $('#score-player2 p:last-child').html(scorePlayer2);
-                    $message.html('Congratulations! Player 2 won');
+                    // $('#score-player2 p:last-child').html(scorePlayer2);
+                    $img_star = addStars();
+                    num_of_stars = scorePlayer2/10;
+                    for (var t = 0; t < num_of_stars ; t++ ) {
+                      $('#score-player2').append($img_star );
+                    }
+                    $message.html('Congrats! Player 2 won');
                     swal({
                         title: "Congratulations!",
                         text: "Player 2 won!"
@@ -132,8 +187,13 @@ $(document).ready(function() {
                 } else {
                     //To display messages winning grid belongs to AI
                     scorePlayer2 = scoreCalculation(scorePlayer2);
-                    $('#score-player2 p:last-child').html(scorePlayer2);
-                    $message.html('Congratulations! AI won');
+                    // $('#score-player2 p:last-child').html(scorePlayer2);
+                    $img_star = addStars();
+                    num_of_stars = scorePlayer2/10;
+                    for (var p = 0; p < num_of_stars ; p++ ) {
+                      $('#score-player2').append($img_star );
+                    }
+                    $message.html('Congrats! AI won');
                     swal({
                         title: "Congratulations!",
                         text: "AI won!"
@@ -229,6 +289,7 @@ $(document).ready(function() {
           title: "Cool!",
           text: "Pick now!"
       });
+      $('.tableDisplay').removeClass('hidden');
     });
     // here the actual game starts.. when user clicks to choose the mode to be played
     $('button.box').on('click', function() {
@@ -241,9 +302,12 @@ $(document).ready(function() {
         }
     });
     // depending on the game mode, this function proceeds
-    $('button.chooseGame').on('click', function() {
+    $('.chooseGame > button').on('click', function() {
+      $('.tableDisplay').addClass('hidden');
         if ($(this).attr('id') === 'one') {
+          console.log('1');
             // add class of one player game if it is player v/s AI
+            $('.chooseGame').addClass('hidden');
             $('body').addClass('onePlayerGame');
             var $imageAI = $("<img>").attr("src", 'images/bb8.jpeg');
             $imageAI.attr('id', 'ai');
@@ -255,31 +319,47 @@ $(document).ready(function() {
                 text: "Pick your avtar!"
             });
             $('.chooseAvtar').removeClass('hidden');
-            // to choose a display avtar for player 1
-            $imgIcon.on('click', function() {
-                var iconSrc = $(this).attr('src');
-                // creating the image
-                var $image = $("<img>").attr("src", iconSrc);
-                $image.attr('id', $(this).attr('id'));
-                inputImg[0] = $(this).attr('id');
-                //prepending the image
-                $('#score-player1').prepend($image);
-                // once the avtars are selected, fade out the chooseGame, avtar display
-                $('.chooseAvtar,.chooseGame,.tableDisplay img').fadeOut();
-                $($('article.hidden,.scoreDisplay')).removeClass('hidden');
-                //$('.scoreDisplay').fadeIn();
+            $('.pick').on('click',function(){
+              $(this).addClass('hidden');
+              $('.default').addClass('hidden');
+              $('.tableDisplay').removeClass('hidden');
+
+              // to choose a display avtar for player 1
+              $imgIcon.on('click', function() {
+                  var iconSrc = $(this).attr('src');
+                  // creating the image
+                  var $image = $("<img>").attr("src", iconSrc);
+                  $image.attr('id', $(this).attr('id'));
+                  inputImg[0] = $(this).attr('id');
+                  //prepending the image
+                  $('#score-player1').prepend($image);
+                  // once the avtars are selected, fade out the chooseGame, avtar display
+                  $('.chooseAvtar,.chooseGame,.tableDisplay img').fadeOut();
+                  $($('article.hidden,.scoreDisplay,.scores')).removeClass('hidden');
+                  //$('.scoreDisplay').fadeIn();
+              });
+            });
+            $('.default').on('click',function(){
+              $(this).addClass('hidden');
+              $('.pick').addClass('hidden');
+              $('.chooseAvtar,.chooseGame,.tableDisplay img').fadeOut();
+              $($('article.hidden,.scoreDisplay,.scores')).removeClass('hidden');
+              var $imageBlue = $("<img>").attr("src", "images/green.png");
+              $imageBlue.attr('id', $(this).attr('id'));
+              $('#score-player1').prepend($imageBlue);
             });
 
         } else {
             //two players game
             swal({
-                title: "Hey!",
+                title: "Hey Player 1!",
                 text: "Pick your avtar!"
             });
+            $('.chooseGame').addClass('hidden');
             $('.chooseAvtar').removeClass('hidden');
             var clickCount = 0;
             //Adding images, image class and background
-            $imgIcon.on('click', function() {
+            $imgIcon.bind('click', function() {
                 clickCount++;
                 var iconSrc = $(this).attr('src');
                 var $image = $("<img>").attr("src", iconSrc);
@@ -287,6 +367,10 @@ $(document).ready(function() {
                 if (clickCount === 1) {
                     inputImg[0] = $(this).attr('id');
                     $('#score-player1').prepend($image);
+                    swal({
+                        title: "Hey Player 2!",
+                        text: "Choose your avtaar!"
+                    });
                 } else {
                     if (inputImg[0] === $(this).attr('id')) {
                         swal({
@@ -298,7 +382,7 @@ $(document).ready(function() {
                         $('#score-player2').prepend($image);
                         // once the avtars are selected, fade out the chooseGame, avtar display
                         $('.chooseAvtar,.chooseGame,.tableDisplay img').fadeOut();
-                        $($('article.hidden,.scoreDisplay')).removeClass('hidden');
+                        $($('article.hidden,.scoreDisplay,.scores')).removeClass('hidden');
                         //$('.scoreDisplay').fadeIn();
                     }
                 }
@@ -307,3 +391,10 @@ $(document).ready(function() {
     });
 
 });
+var addStars = function(){
+  $star = $('<img />');
+  $star.attr('src','images/star.png');
+  $star.addClass('stars_score');
+  console.log($star);
+  return $star;
+};

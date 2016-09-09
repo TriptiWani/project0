@@ -4,6 +4,7 @@
 body{
   background-image: url(http://il6.picdn.net/shutterstock/videos/9507011/thumb/1.jpg);
   background-size: cover;
+  background-repeat: no-repeat;
   font-family: 'Coming Soon', cursive;
 }
 h1,b{
@@ -12,11 +13,24 @@ h1,b{
 }
 #displayMessage{
   font-family: 'Arimo', sans-serif;
+  text-align: center;
 }
 .score{
   background: #e8c7c7;
   display:inline;
 
+}
+.startGame{
+  margin:100px;
+  width:auto;
+  border-radius: 1em;
+}
+.stars_score {
+  height:25px;
+  width: 25px;
+}
+.startGame:hover{
+  opacity:0.5;
 }
 .tableDisplay{
   margin:30px auto;
@@ -193,5 +207,5 @@ b{
 
 }
 .winner{
-  
+
 }
